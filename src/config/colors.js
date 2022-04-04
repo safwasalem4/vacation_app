@@ -4,5 +4,6 @@ export default {
   dark: '#484848',
   subTitle: '#8F8F8F',
   gray: '#F5F5F5',
-  white: '#ffffff',
+  white: '#FFFFFF',
+  error: '#FF0000',
 };
