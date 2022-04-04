@@ -8,7 +8,7 @@ const ScreenContainer = ({ back, header, children, mainViewStyle }) => {
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.safeAreaStyle} />
-      <StatusBar backgroundColor={colors.white} barStyle={'light-content'} />
+      <StatusBar backgroundColor={colors.primary} barStyle={'light-content'} />
 
       {/* header */}
       <Header header={header} back={back} />

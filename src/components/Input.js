@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
+import { View, StyleSheet, TextInput, Platform } from 'react-native';
 import { responsiveFontSize, responsiveWidth } from 'react-native-responsive-dimensions';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    borderWidth: 0.5,
+    borderWidth: 1,
     borderRadius: 8,
   },
   inputText: {
     flex: 1,
-    paddingVertical: 16,
+    paddingVertical: Platform.OS === 'ios' ? 16 : null,
     color: colors.dark,
     fontSize: responsiveFontSize(1.8),
   },

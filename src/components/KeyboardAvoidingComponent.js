@@ -18,7 +18,7 @@ const KeyboardAvoidingComponent = ({
     <KeyboardAvoidingView behavior={'padding'} enabled={Platform.OS === 'ios'} style={styles.container}>
       <View style={styles.container}>
         <SafeAreaView style={styles.safeAreaStyle} />
-        <StatusBar backgroundColor={colors.white} barStyle={'light-content'} />
+        <StatusBar backgroundColor={colors.primary} barStyle={'light-content'} />
         <Header header={header} back={back} />
 
         <ScrollView
