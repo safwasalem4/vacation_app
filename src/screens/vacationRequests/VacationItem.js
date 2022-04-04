@@ -17,8 +17,8 @@ const VacationItem = ({ item }) => {
       <RowText
         textOne={'Mobile: '}
         textTwo={mobile}
-        textOneType={TEXT_SIZE.body1}
-        textTwoType={TEXT_SIZE.body1}
+        textOneType={TEXT_SIZE.body}
+        textTwoType={TEXT_SIZE.body}
         textOneWeight={FONT_WEIGHT.semiBold}
         textOneStyle={styles.textOneStyle}
         textTwoStyle={styles.textTwoStyle}
@@ -27,8 +27,8 @@ const VacationItem = ({ item }) => {
       <RowText
         textOne={'Duration: '}
         textTwo={`${requestDays} Day`}
-        textOneType={TEXT_SIZE.body1}
-        textTwoType={TEXT_SIZE.body1}
+        textOneType={TEXT_SIZE.body}
+        textTwoType={TEXT_SIZE.body}
         textOneWeight={FONT_WEIGHT.semiBold}
         textOneStyle={styles.textOneStyle}
         textTwoStyle={styles.textTwoStyle}
@@ -37,8 +37,8 @@ const VacationItem = ({ item }) => {
       <RowText
         textOne={'From: '}
         textTwo={formatDate(startDate)}
-        textOneType={TEXT_SIZE.body1}
-        textTwoType={TEXT_SIZE.body1}
+        textOneType={TEXT_SIZE.body}
+        textTwoType={TEXT_SIZE.body}
         textOneWeight={FONT_WEIGHT.semiBold}
         textOneStyle={styles.textOneStyle}
         textTwoStyle={styles.textTwoStyle}
@@ -47,8 +47,8 @@ const VacationItem = ({ item }) => {
       <RowText
         textOne={'To: '}
         textTwo={formatDate(moment(startDate).add(requestDays, 'days'))}
-        textOneType={TEXT_SIZE.body1}
-        textTwoType={TEXT_SIZE.body1}
+        textOneType={TEXT_SIZE.body}
+        textTwoType={TEXT_SIZE.body}
         textOneWeight={FONT_WEIGHT.semiBold}
         textOneStyle={styles.textOneStyle}
         textTwoStyle={styles.textTwoStyle}
@@ -57,8 +57,8 @@ const VacationItem = ({ item }) => {
       <RowText
         textOne={'Replacement by: '}
         textTwo={replacementName}
-        textOneType={TEXT_SIZE.body1}
-        textTwoType={TEXT_SIZE.body1}
+        textOneType={TEXT_SIZE.body}
+        textTwoType={TEXT_SIZE.body}
         textOneWeight={FONT_WEIGHT.semiBold}
         textOneStyle={styles.textOneStyle}
         textTwoStyle={styles.textTwoStyle}
