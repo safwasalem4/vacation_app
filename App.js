@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Splash from './src/screens/Splash';
-import Home from './src/screens/Home';
+import Home from './src/screens/home/Home';
 import VacationRequests from './src/screens/vacationRequests/VacationRequests';
 import RequestVacation from './src/screens/RequestVacation';
 
