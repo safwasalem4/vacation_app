@@ -18,7 +18,7 @@ export function getVacationRequests(navigation) {
       const apiReq = await res.json();
       await dispatch(setVacationRequests(apiReq));
 
-      navigation.navigate('VacationRequests');
+      navigation.navigate('VacationRequestsController');
 
       return apiReq || [];
     } catch (error) {

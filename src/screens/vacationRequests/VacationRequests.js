@@ -1,39 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FlatList } from 'react-native';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
-import * as pageActions from '../../redux/actions/vacationRequests';
 import ScreenContainer from '../../components/ScreenContainer';
 import VacationItem from './VacationItem';
+import Input from '../../components/Input';
 
-class VacationRequests extends Component {
-  render() {
-    const { vacationRequests } = this.props;
+const VacationRequests = ({ vacationRequests, searchText, search }) => {
+  return (
+    <ScreenContainer back header={'Vacation Requests'}>
+      <FlatList
+        data={vacationRequests}
+        horizontal={false}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(item, index) => `${index}`}
+        ListHeaderComponent={
+          <Input searchIcon placeholder={'Search...'} value={searchText} onChangeText={(text) => search(text)} />
+        }
+        renderItem={({ item }) => <VacationItem item={item} />}
+      />
+    </ScreenContainer>
+  );
+};
 
-    return (
-      <ScreenContainer back header={'Vacation Requests'}>
-        <FlatList
-          data={vacationRequests}
-          horizontal={false}
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(item, index) => `${index}`}
-          renderItem={({ item }) => <VacationItem item={item} />}
-        />
-      </ScreenContainer>
-    );
-  }
-}
-
-const mapStateToProps = (state) => ({
-  vacationRequests: state.vacationRequests.vacationRequests,
-});
-
-const ActionCreators = Object.assign({}, pageActions);
-
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(ActionCreators, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(VacationRequests);
+export default VacationRequests;
