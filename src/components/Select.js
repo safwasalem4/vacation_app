@@ -5,9 +5,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import CustomText, { TEXT_SIZE } from './CustomText';
 import colors from '../config/colors';
+import ErrorMessage from './ErrorMessage';
 
 const Select = ({ value, onPress, error }) => {
-  console.log('value', value);
   return (
     <View style={styles.container}>
       {/* Input View */}

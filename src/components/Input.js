@@ -4,6 +4,7 @@ import { responsiveFontSize, responsiveWidth } from 'react-native-responsive-dim
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import colors from '../config/colors';
+import ErrorMessage from './ErrorMessage';
 
 const Input = ({ searchIcon, placeholder, error, ...otherProps }) => {
   return (

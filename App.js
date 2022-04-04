@@ -4,8 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Splash from './src/screens/Splash';
 import Home from './src/screens/home/Home';
-import RequestVacation from './src/screens/RequestVacation';
 import VacationRequestsController from './src/controllers/VacationRequestsController';
+import RequestVacationController from './src/controllers/RequestVacationController';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +17,7 @@ class App extends Component {
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="VacationRequestsController" component={VacationRequestsController} />
-          <Stack.Screen name="RequestVacation" component={RequestVacation} />
+          <Stack.Screen name="RequestVacationController" component={RequestVacationController} />
         </Stack.Navigator>
       </NavigationContainer>
     );

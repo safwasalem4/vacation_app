@@ -10,7 +10,7 @@ import ScreenContainer from '../../components/ScreenContainer';
 import HomeButton from './HomeButton';
 
 class Home extends Component {
-  incrementCount() {
+  getRequests() {
     let { actions, navigation } = this.props;
     actions.getVacationRequests(navigation);
   }
@@ -24,14 +24,14 @@ class Home extends Component {
         <HomeButton
           buttonTitle={'Vacation' + '\n' + 'Requests'}
           source={require('../../config/images/vacation-requests.png')}
-          onPress={() => this.incrementCount()}
+          onPress={() => this.getRequests()}
         />
 
         {/* Request Vacation */}
         <HomeButton
           buttonTitle={'Create' + '\n' + 'Vacation' + '\n' + 'Request'}
           source={require('../../config/images/create-request.png')}
-          onPress={() => navigation.navigate('RequestVacation')}
+          onPress={() => navigation.navigate('RequestVacationController')}
         />
       </ScreenContainer>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { formatDate, getTomorrowDate } from '../methods/Helper';
 
@@ -7,87 +7,64 @@ import SelectDate from '../components/SelectDate';
 import Select from '../components/Select';
 import Input from '../components/Input';
 
-export default class RequestVacation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      replacementName: '',
-      mobileNumber: '',
-      startDate: '',
-      requestedDays: '',
-      selectDate: false,
-      errors: {
-        name: undefined,
-        replacementName: undefined,
-        mobileNumber: undefined,
-        startDate: undefined,
-        requestedDays: undefined,
-      },
-    };
-  }
+const RequestVacation = ({ onSubmit, inputs, setState }) => {
+  const { name, replacementName, mobileNumber, startDate, requestedDays, selectDate, date, errors } = inputs;
 
-  render() {
-    const { errors, name, replacementName, mobileNumber, startDate, requestedDays, selectDate, date } = this.state;
+  return (
+    <KeyboardAvoidingComponent
+      back
+      footerButton
+      header={'Create Vacation Request'}
+      buttonTitle={'Submit Request'}
+      onPressFooterButton={() => onSubmit()}>
+      {/* Name */}
+      <Input placeholder={'Name'} value={name} onChangeText={(name) => setState({ name })} error={errors.name} />
 
-    function onSubmit() {
-      console.log('onSubmit');
-    }
+      {/* Replacement name */}
+      <Input
+        placeholder={'Replacement name'}
+        value={replacementName}
+        onChangeText={(replacementName) => setState({ replacementName })}
+        error={errors.replacementName}
+      />
 
-    return (
-      <KeyboardAvoidingComponent
-        back
-        footerButton
-        header={'Create Vacation Request'}
-        buttonTitle={'Submit Request'}
-        onPressFooterButton={() => onSubmit()}>
-        {/* Name */}
-        <Input placeholder={'Name'} value={name} onChangeText={(text) => setSearchText(text)} error={errors.name} />
+      {/* Mobile number */}
+      <Input
+        placeholder={'Mobile number (Optional)'}
+        value={mobileNumber}
+        onChangeText={(mobileNumber) => setState({ mobileNumber })}
+        keyboardType={'number-pad'}
+        error={errors.mobileNumber}
+      />
 
-        {/* Replacement name */}
-        <Input
-          placeholder={'Replacement name'}
-          value={replacementName}
-          onChangeText={(text) => setSearchText(text)}
-          error={errors.replacementName}
-        />
+      {/* Start date */}
+      <Select
+        value={startDate ? formatDate(startDate) : 'Select vacation start date'}
+        onPress={() => setState({ selectDate: true })}
+        error={errors.startDate}
+      />
 
-        {/* Mobile number */}
-        <Input
-          placeholder={'Mobile number (Optional)'}
-          value={mobileNumber}
-          onChangeText={(text) => setSearchText(text)}
-          keyboardType={'number-pad'}
-          error={errors.mobileNumber}
-        />
+      {/* Requested days */}
+      <Input
+        placeholder={'Number of requested days'}
+        value={requestedDays}
+        onChangeText={(requestedDays) => setState({ requestedDays })}
+        keyboardType={'numeric'}
+        error={errors.requestedDays}
+      />
 
-        {/* Start date */}
-        <Select
-          value={startDate ? formatDate(startDate) : 'Select vacation start date'}
-          onPress={() => setSelectDate(true)}
-          error={errors.startDate}
-        />
+      {/* Select date modal */}
+      <SelectDate
+        isVisible={selectDate}
+        minimumDate={getTomorrowDate()}
+        date={date}
+        onCancel={() => setState({ selectDate: false })}
+        onConfirm={(dateSelected) =>
+          setState({ selectDate: false, startDate: dateSelected, errors: { ...errors, startDate: undefined } })
+        }
+      />
+    </KeyboardAvoidingComponent>
+  );
+};
 
-        {/* Requested days */}
-        <Input
-          placeholder={'Number of requested days'}
-          value={requestedDays}
-          onChangeText={(text) => setSearchText(text)}
-          error={errors.requestedDays}
-        />
-
-        {/* Select date modal */}
-        <SelectDate
-          isVisible={selectDate}
-          minimumDate={getTomorrowDate()}
-          date={date}
-          onCancel={() => setSelectDate(false)}
-          onConfirm={(dateSelected) => {
-            setSelectDate(false);
-            setDate(dateSelected);
-          }}
-        />
-      </KeyboardAvoidingComponent>
-    );
-  }
-}
+export default RequestVacation;
